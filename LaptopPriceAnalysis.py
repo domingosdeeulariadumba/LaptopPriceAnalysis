@@ -87,7 +87,7 @@ df['Product'] = name[1].str.split('Dual Core| Hexa Core| Quad Core| Core',
 
     '''
     Changing the 'Processor' column:
-        - We will first extract the more frequent processor types from the 
+        - We will first extract the most frequent processor types from the 
           Processor column to create a new one;  
         - then it will be created a new column with the core type;
         - endly, it will be created a new column informing the processors
@@ -255,7 +255,7 @@ df_ltp=pd.concat([df['Brand'], df['Product'], df['ProcessorType'],
 
 
     '''
-    Main statistical parameters of the explanatory and target variables.
+    Main statistical parameters of the explanatories and target variables.
     '''
 df_ltp.describe().iloc[:,:-1]
 
@@ -338,7 +338,7 @@ pp.close()
 
 
     '''
-    To build the ML model it is vital to first encode the categorical entries.
+    To build the ML model it is vital to first hot-encode the categorical entries.
     Then, we'll normalize, scale and reduce the dimensionality of these
     attributes
     '''
@@ -373,9 +373,9 @@ x = NSR(X)
 
 
     '''
-    Runnig the code above, we can notice a reduction of 19 components.
+    Runnig the code above, we notice a reduction of 19 components.
     Next, we split this data into train and test sets. To train this model,
-    will use the regression approach of SciKit-Learn and XGBoost and pick the
+    we'll use the regression approach of SciKit-Learn and XGBoost and pick the
     one with the best performance.
     '''
 x_train, x_test, y_train, y_test = tts(x,y, test_size = 0.2, random_state = 97)
