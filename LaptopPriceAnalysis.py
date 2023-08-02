@@ -375,7 +375,7 @@ x = NSR(X)
     '''
     Runnig the code above, we notice a reduction of 19 components.
     Next, we split this data into train and test sets. To train this model,
-    we'll use the regression approach of SciKit-Learn and XGBoost and pick the
+    we'll use the regression approach of SciKit-Learn and XGBoost to then pick the
     one with the best performance.
     '''
 x_train, x_test, y_train, y_test = tts(x,y, test_size = 0.2, random_state = 97)
