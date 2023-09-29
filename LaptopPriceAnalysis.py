@@ -54,7 +54,7 @@ df = pd.read_csv("C:/Users/domingosdeeularia/Documents/notyourbusiness/CodingAnd
 
     '''
     The main goal of this project is to help predicting the price of laptops
-    based on its configurations. Regarding this point, it is noticed in the
+    based on their configurations. Regarding this point, it is noticed in the
     dataset entries lots of information, which will be solved with feature
     engineering on the following steps.
     '''
