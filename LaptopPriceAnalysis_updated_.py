@@ -409,7 +409,7 @@ def check_model(x, y, model):
                                        scoring='neg_mean_squared_error')
             grid_search.fit(X_train, y_train)
             best_model = grid_search.best_estimator_
-            final_model = model(**best_xgb.get_xgb_params()
+            final_model = model(**best_model.get_xgb_params()
                                 ).fit(X_train, y_train)
             y_model_pred = final_model.predict(X_test)
             mse_model = mean_squared_error(y_test, y_model_pred)
@@ -440,12 +440,12 @@ df_metrics = pd.DataFrame([XGB_metrics, LinReg_metrics, Lasso_metrics,
         the other three models. We'll next save this model using joblib, import
         it and deploy as a Web App with Gradio.
         '''
+mse, r2, model = check_model(X, y, Ridge)
 
-    ''' SAVING THE MODEL '''
-    
-best_model = check_model(X, y, Ridge)[-1:]
 
-jbl.dump(best_model,"LaptopPriceModel.sav")
+    ''' SAVING THE MODEL ''' 
+
+jbl.dump(model,"LaptopPriceModel.sav")
 
 
     ''' MODEL PELOYMENT '''
