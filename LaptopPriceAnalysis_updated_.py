@@ -247,7 +247,7 @@ df['Price'] = df['Price'].replace(['₹', ','], '', regex = True).astype(float)
     '''
     Concatenating the clean data in a new dataset.
     '''
-df_ltp=pd.concat([df['Brand'], df['Product'], df['ProcessorType'],
+df_ltp = pd.concat([df['Brand'], df['Product'], df['ProcessorType'],
                   df['ProcessorCore'], df['ProcessorGen'], df['RAM'],
                   df['OpSys'], df['HDD Storage'], df['SSD Storage'], 
                   df['Display'], df['Warranty'], df['Rating'], df['Price']],
@@ -318,7 +318,7 @@ for j in brplt_vars:
     pp.close()
     
 sb.pairplot(df_ltp, x_vars = numeric_vls[:3],
-            y_vars=['Price'], height = 8, aspect = .8, kind = 'scatter')
+            y_vars = ['Price'], height = 8, aspect = .8, kind = 'scatter')
 pp.savefig("scatterplot.png")
 pp.close()
 
@@ -355,7 +355,7 @@ pp.close()
 X, y = pd.get_dummies(df_ltp.iloc[:,:-1],
                       drop_first = True), df_ltp.iloc[:,-1]
 
-def check_model(x, y, model):
+def check_model(X, y, model):
     
     X_scaled = pd.DataFrame(RobustScaler().fit_transform(X), 
                             columns = X.columns)
